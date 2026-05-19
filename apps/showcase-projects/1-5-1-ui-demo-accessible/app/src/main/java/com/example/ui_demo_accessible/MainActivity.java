@@ -1,6 +1,7 @@
 package com.example.ui_demo_accessible;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.ui_demo_accessible.databinding.ActivityMainBinding;
 
@@ -25,7 +26,23 @@ public class MainActivity extends AppCompatActivity {
         binding.button1.setOnClickListener(v -> {
             //Acción al presionar el botón: Cambiar el texto
             binding.textTitle.setText("¡Has pulstado el boton!");
+        });
+
+        //Listener segundo botón con lambda
+        binding.button2.setOnClickListener(v -> {
+            //Acción al presionar el botón: Mostrar el FrameLayout
+            binding.frameContent.setVisibility(View.VISIBLE);
 
         });
+
+        //Listener moderno con lambda
+        binding.button3.setOnClickListener(v -> {
+            //Acción al presionar el botón: Vuelve al estado inicial
+            binding.textTitle.setText("Demo de Interfaz");
+            binding.frameContent.setVisibility(View.GONE);
+
+
+        });
+
     }
 }

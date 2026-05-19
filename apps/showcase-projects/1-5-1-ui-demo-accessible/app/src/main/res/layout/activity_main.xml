@@ -17,12 +17,76 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
 
+
+    <LinearLayout
+        android:id="@+id/layoutButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click aquí"
+            android:contentDescription="Botón para cambiar el texto de la cabecera"
+            android:textAllCaps="false"
+            android:layout_margin="8dp"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abrir frame"
+            android:contentDescription="Botón para cambiar el texto superpuesto"
+            android:textAllCaps="false"
+            android:layout_margin="8dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/frameContent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imageBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/imagen_fondo"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/desc_imagen_fondo" />
+
+        <TextView
+            android:id="@+id/textOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:text="Texto superpuesto"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:background="#660000" />
+    </FrameLayout>
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Presióname"
-        android:contentDescription="Botón para cambiar el texto de la cabecera"
-        android:textAllCaps="false" />
+        android:backgroundTint="@color/red"
+        android:text="Atrás"
+        android:contentDescription="Botón que va al inicio"
+        android:layout_margin="8dp"
+        />
+
 
 </LinearLayout>
