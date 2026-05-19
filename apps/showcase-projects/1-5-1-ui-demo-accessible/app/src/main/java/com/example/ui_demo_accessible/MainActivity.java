@@ -5,11 +5,8 @@ import android.view.View;
 
 import com.example.ui_demo_accessible.databinding.ActivityMainBinding;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding; // ViewBinding para activity_main.xml

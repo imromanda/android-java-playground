@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ui-demo-accessible</string>
-    <string name="desc_imagen_fondo">Esto es un png de un png</string>
+    <string name="interface_demo">Interface Demo</string>
+    <string name="click_here">Click here</string>
+    <string name="Content_button1">Botón para cambiar el texto de la cabecera</string>
+
+    <string name="background_image_desc">This is a png of a png file</string>
 </resources>

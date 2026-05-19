@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Demo de Interfaz"
+        android:text="@string/interface_demo"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
@@ -30,8 +31,8 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click aquí"
-            android:contentDescription="Botón para cambiar el texto de la cabecera"
+            android:text="@string/click_here"
+            android:contentDescription="@string/Content_button1"
             android:textAllCaps="false"
             android:layout_margin="8dp"
             />
@@ -40,53 +41,112 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Abrir frame"
-            android:contentDescription="Botón para cambiar el texto superpuesto"
+            android:text="Open frame"
+            android:contentDescription="Button to show the overlapping text"
             android:textAllCaps="false"
             android:layout_margin="8dp"
             />
+
+
 
 
     </LinearLayout>
 
 
 
+
     <FrameLayout
         android:id="@+id/frameContent"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:visibility="gone"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_gravity="fill_vertical"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintVertical_chainStyle="packed"
+        >
 
-        <ImageView
-            android:id="@+id/imageBackground"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/imagen_fondo"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/desc_imagen_fondo" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textOverlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:text="Texto superpuesto"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
-            android:padding="12dp"
-            android:background="#660000" />
+            <ImageView
+                android:id="@+id/imageBackground"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/background_image"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/background_image_desc"
+                android:layout_marginBottom="40dp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/textOverlay"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+                <TextView
+                    android:id="@+id/textOverlay"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#47000000"
+                    android:background="@color/black"
+                    android:gravity="center_horizontal"
+                    android:text="This is a png file"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:padding="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/imageBackground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/editMessage"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+
+
+                <EditText
+                    android:id="@+id/editMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Type to change the message"
+                    app:layout_constraintTop_toBottomOf="@+id/textOverlay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
+                    app:layout_constraintStart_toStartOf="parent"
+
+
+                    />
+
+
+                <Button
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Refresh message"
+                    android:contentDescription="Button to change the overlapping text"
+                    android:textAllCaps="false"
+                    android:layout_margin="8dp"
+
+                    app:layout_constraintTop_toBottomOf="@+id/editMessage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/button3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+        </LinearLayout>
     </FrameLayout>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/red"
-        android:text="Atrás"
-        android:contentDescription="Botón que va al inicio"
+        android:backgroundTint="#D5C1C1"
+        android:textColor="@color/black"
+        android:text="Back"
+        android:contentDescription="Button to go back"
         android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         />
-
-
 </LinearLayout>

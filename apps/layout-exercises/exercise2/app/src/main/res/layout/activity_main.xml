@@ -33,7 +33,6 @@
         app:layout_constraintTop_toBottomOf="@+id/text_form"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/input_email"
-
         app:layout_constraintStart_toStartOf="parent"
     />
 
