@@ -1,0 +1,31 @@
+package com.example.ui_demo_accessible;
+
+import android.os.Bundle;
+
+import com.example.ui_demo_accessible.databinding.ActivityMainBinding;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding; // ViewBinding para activity_main.xml
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Inflamos el layout usando ViewBinding
+    binding = ActivityMainBinding.inflate(getLayoutInflater());
+    setContentView(binding.getRoot());
+
+    //Listener moderno con lambda
+        binding.button1.setOnClickListener(v -> {
+            //Acción al presionar el botón: Cambiar el texto
+            binding.textTitle.setText("¡Has pulstado el boton!");
+
+        });
+    }
+}
