@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         binding.button1.setOnClickListener(v -> {
             //Acción al presionar el botón: Cambiar el texto
             binding.textTitle.setText("¡Has pulstado el boton!");
+
+
+
+
         });
 
         //Listener segundo botón con lambda
