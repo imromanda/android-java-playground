@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,8 +54,7 @@
         android:layout_gravity="fill_vertical"
         android:layout_margin="16dp"
         android:layout_weight="1"
-        android:visibility="gone"
-        app:layout_constraintVertical_chainStyle="packed">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,15 +66,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+
                 android:layout_marginBottom="40dp"
                 android:contentDescription="@string/background_image_desc"
                 android:scaleType="centerCrop"
                 android:src="@drawable/background_image"
 
-                app:layout_constraintBottom_toTopOf="@+id/textOverlay"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                />
 
             <TextView
                 android:id="@+id/textOverlay"
@@ -89,13 +85,7 @@
                 android:padding="4dp"
                 android:text="This is a png file"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/editMessage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageBackground"
-
-                />
+                android:textSize="18sp" />
 
 
             <EditText
@@ -103,10 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Type to change the message"
-                app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textOverlay" />
+                android:layout_gravity="center_horizontal" />
 
 
             <Button
@@ -115,13 +102,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:contentDescription="Button to change the overlapping text"
-
                 android:text="Refresh message"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toTopOf="@+id/button3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newMessage" />
+                android:textAllCaps="false" />
         </LinearLayout>
 
         <!--  android:enabled="false"-->
@@ -135,6 +117,5 @@
         android:backgroundTint="#D5C1C1"
         android:contentDescription="Button to go back"
         android:text="Back"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/black" />
 </LinearLayout>
