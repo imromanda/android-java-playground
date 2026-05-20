@@ -1,14 +1,12 @@
 # =========================
 # Android Studio / IntelliJ
 # =========================
-
 .idea/
 *.iml
 
 # =========================
 # Gradle
 # =========================
-
 .gradle/
 build/
 */build/
@@ -16,84 +14,50 @@ build/
 # =========================
 # Local machine config
 # =========================
-
 local.properties
 
 # =========================
-# Generated files
+# Native / generated files
 # =========================
-
 captures/
 .externalNativeBuild/
 .cxx/
+out/
 
 # =========================
 # APK / Bundle outputs
 # =========================
-
 *.apk
 *.aab
 
 # =========================
 # Logs
 # =========================
-
 *.log
 
 # =========================
-# OS files
+# VSCode
 # =========================
-
-.DS_Store
-Thumbs.db
-
-# =========================
-# Kotlin / Java temp
-# =========================
-
-out/
-
-# =========================
-# VSCode (if used)
-# =========================
-
 .vscode/
 
 # =========================
-# Mac/Linux temp
+# OS / temp files
 # =========================
-
+.DS_Store
+Thumbs.db
+desktop.ini
 *.swp
 *.tmp
 
-# Android emulator / local Android config
+# =========================
+# Android emulator / local
+# =========================
 .android/
 *.avd/
-
-# Local shell/emulator files
 .emulator_console_auth_token
 .lesshst
+
+# =========================
+# Personal git config
+# =========================
 .gitconfig
-
-# Android local/emulator
-.android/
-*.avd/
-
-# IntelliJ
-.idea/
-
-# Build outputs
-build/
-*/build/
-
-desktop.ini
-
-.idea/
-*.iml
-desktop.ini
-.gitconfig
-.lesshst
-.emulator_console_auth_token
-
-
-
