@@ -99,17 +99,14 @@
 
 
             <EditText
-                android:id="@+id/editMessage"
+                android:id="@+id/newMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Type to change the message"
                 app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textOverlay"
-
-
-                />
+                app:layout_constraintTop_toBottomOf="@+id/textOverlay" />
 
 
             <Button
@@ -118,15 +115,16 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:contentDescription="Button to change the overlapping text"
-                android:enabled="false"
+
                 android:text="Refresh message"
                 android:textAllCaps="false"
-
                 app:layout_constraintBottom_toTopOf="@+id/button3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editMessage" />
+                app:layout_constraintTop_toBottomOf="@+id/newMessage" />
         </LinearLayout>
+
+        <!--  android:enabled="false"-->
     </FrameLayout>
 
     <Button
