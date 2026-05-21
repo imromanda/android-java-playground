@@ -3,6 +3,12 @@
     <string name="interface_demo">Interface Demo</string>
     <string name="click_here">Click here</string>
     <string name="Content_button1">Botón para cambiar el texto de la cabecera</string>
+    <string name="open_frame">Open frame</string>
+    <string name="hint_new_message">Type to change the message</string>
+    <string name="btnRefresh">Refresh message</string>
+    <string name="btnBack">Back</string>
+    <string name="switchText">Hide message</string>
 
+    <string name="textOverlay">This is a png file</string>
     <string name="background_image_desc">This is a png of a png file</string>
 </resources>

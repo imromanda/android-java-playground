@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="16dp">
@@ -18,15 +18,16 @@
 
 
     <LinearLayout
-        android:id="@+id/layoutButtons"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal|top">
 
         <Button
             android:id="@+id/button1"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -36,11 +37,11 @@
 
         <Button
             android:id="@+id/button2"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:contentDescription="Button to show the overlapping text"
-            android:text="Open frame"
+            android:text="@string/open_frame"
             android:textAllCaps="false" />
 
 
@@ -51,25 +52,22 @@
         android:id="@+id/frameContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill_vertical"
-        android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:gravity="center_horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/imageBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
 
                 android:layout_marginBottom="40dp"
                 android:contentDescription="@string/background_image_desc"
-                android:scaleType="centerCrop"
                 android:src="@drawable/background_image"
 
                 />
@@ -78,12 +76,11 @@
                 android:id="@+id/textOverlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:background="@color/black"
                 android:backgroundTint="#47000000"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:padding="4dp"
-                android:text="This is a png file"
+                android:text="@string/textOverlay"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -92,21 +89,31 @@
                 android:id="@+id/newMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Type to change the message"
-                android:layout_gravity="center_horizontal" />
+                android:hint="@string/hint_new_message" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnRefresh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:contentDescription="Button to change the overlapping text"
-                android:text="Refresh message"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    android:text="@string/btnRefresh"
+                    android:textAllCaps="false" />
+
+                <Switch
+                    android:id="@+id/switchMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    android:text="@string/switchText" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <!--  android:enabled="false"-->
     </FrameLayout>
 
     <Button
@@ -115,7 +122,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:backgroundTint="#D5C1C1"
-        android:contentDescription="Button to go back"
-        android:text="Back"
+        android:text="@string/btnBack"
         android:textColor="@color/black" />
 </LinearLayout>

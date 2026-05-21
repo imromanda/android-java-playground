@@ -78,5 +78,24 @@ public class MainActivity extends AppCompatActivity {
           /*onClick = Cambia el texto del overlay por lo introducido en el textOverlay */
           binding.textOverlay.setText(binding.newMessage.getText().toString());
         });
+
+    // Switch que oculta y muestra el texto superpuesto
+    binding.switchMessage.setOnCheckedChangeListener(
+        // Detecta cuando el switch cambia de estado y revisa si está activo(true) o no(false)
+        (buttonView, isChecked) -> {
+          // Si está activo oculta la visibilidad del elemento newMessage y del botón de refrescar
+          // mensaje
+          if (isChecked) {
+            binding.newMessage.setVisibility(View.GONE);
+            binding.btnRefresh.setVisibility(View.GONE);
+            binding.textOverlay.setVisibility(View.GONE);
+
+            // Si está desactivado muestra elemento newMessage  y del botón de refrescar mensaje
+          } else {
+            binding.newMessage.setVisibility(View.VISIBLE);
+            binding.btnRefresh.setVisibility(View.VISIBLE);
+            binding.textOverlay.setVisibility(View.VISIBLE);
+          }
+        });
   }
 }
