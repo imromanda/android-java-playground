@@ -1,3 +1,25 @@
+<!-- Archivo strings.xml -->
 <resources>
-    <string name="app_name">1-6-MiBlocDeNotas</string>
+
+    <!-- Nombre de la app -->
+    <string name="app_name">Mi Bloc de Notas</string>
+
+    <!-- Mensaje de bienvenida -->
+    <string name="welcome_message">¡Bienvenido!</string>
+
+    <!-- Texto del botón -->
+    <string name="btn_show_message">Mostrar mensaje</string>
+
+    <!-- Mensaje que se mostrará al pulsar el botón -->
+    <string name="note_message">Aquí podrás escribir tus notas</string>
+    <string name="subtitle">Tu blog de notas</string>
+
+
+
+    <!-- Nuevos textos para este apartado -->
+    <string name="label_title">Bloc de Notas</string>
+    <string name="label_description">Esta app te permitirá guardar ideas y recordatorios.</string>
+
+
+
 </resources>
