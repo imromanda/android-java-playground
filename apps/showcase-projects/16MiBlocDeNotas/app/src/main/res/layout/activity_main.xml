@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- Layout principal de la app -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@color/info_bg_default">
+
+    <!--Icono de la app-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_nota"
+        android:id="@+id/imgIcon"
+        android:contentDescription="TODO">
+
+    </ImageView>
 
     <!-- Título de la app -->
     <TextView
@@ -38,12 +52,68 @@
         android:layout_marginTop="16dp"/>
 
     <!-- Botón -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_show_message"
+        style="@style/PrimaryMaterialButtonStyle"
         android:layout_gravity="center"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp"
+        android:text="@string/btn_show_message" />
+
+
+
+    <!-- Switch para cambiar de tema -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    
+    </com.google.android.material.switchmaterial.SwitchMaterial>
+
+    <!-- Bloque de información -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/info_bg_default"
+        android:id="@+id/infoBlock">
+
+        <!--Nuevo icono de lápiz-->
+        <ImageView
+
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="@dimen/icon_medium"
+            android:src="@drawable/ic_lapiz"
+            android:id="@+id/imgPencil"
+            android:layout_margin="12dp"
+            android:contentDescription="Vector de UN LAPIZ escalado mediante dimens">
+        </ImageView>
+
+        <!--Texto de información-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_gravity="center"
+            android:text="@string/info_text"
+            style="@style/InfoTextStyle"
+            android:id="@+id/txtInfo">
+        </TextView>
+    </LinearLayout>
+
+    <!-- Icono GRANDE de nota -->
+    <ImageView
+        android:id="@+id/imBigNote"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_nota_grande"
+        android:layout_marginTop="24dp"
+        style="@style/InfoTextStyle"
+        android:contentDescription="TODO">
+    </ImageView>
+
+    <!--ImageView (imgBigNote)
+        MaterialCardView (cardDemo)
+            TextView-->
 
 </LinearLayout>

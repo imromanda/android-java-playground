@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Archivo dimens.xml -->
+<!-- NUEVO: añadido en el apartado 6.7.1 para definir tamaños reutilizables -->
+
+<resources>
+
+    <!-- Tamaño estándar para iconos pequeños -->
+    <dimen name="icon_small">40dp</dimen>
+
+    <!-- Tamaño estándar para iconos medianos -->
+    <dimen name="icon_medium">60dp</dimen>
+
+    <!-- Tamaño grande para demostraciones -->
+    <dimen name="icon_large">120dp</dimen>
+
+</resources>

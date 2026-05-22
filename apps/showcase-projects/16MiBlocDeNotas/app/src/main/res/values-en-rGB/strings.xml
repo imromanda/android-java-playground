@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- Archivo strings.xml (EN) -->
+<!-- NUEVO: añadido en el apartado 1.6.4 para soporte en inglés -->
+
+<resources>
+    <string name="app_name">My Notepad</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="btn_show_message">Show message</string>
+    <string name="note_message">Here you can write your notes</string>
+    <string name="subtitle">Your Notepad</string>
+    <string name="label_title">Notepad</string>
+    <string name="label_description">This app will allow you to keet ideas and reminders.</string>
+    <string name="info_text">This is an informative section inside a layout.</string>
+    <string name="label_description2">This is the second label description</string>
+</resources>

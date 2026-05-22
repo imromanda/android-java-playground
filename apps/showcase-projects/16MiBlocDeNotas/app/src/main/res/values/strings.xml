@@ -1,3 +1,8 @@
+<!-- Archivo strings.xml (ES) -->
+<!-- Este archivo NO se modifica en el apartado 1.6.4 -->
+<!-- Aquí mantenemos los textos en español -->
+
+
 <!-- Archivo strings.xml -->
 <resources>
 
@@ -15,11 +20,14 @@
     <string name="subtitle">Tu blog de notas</string>
 
 
-
     <!-- Nuevos textos para este apartado -->
     <string name="label_title">Bloc de Notas</string>
     <string name="label_description">Esta app te permitirá guardar ideas y recordatorios.</string>
 
 
+
+    <!--Nuevos textos para el apartado de información -->
+    <string name="info_text">Este es un bloque informativo dentro de un layout.</string>
+    <string name="label_description2">El texo por el que se cambia el label_description</string>
 
 </resources>

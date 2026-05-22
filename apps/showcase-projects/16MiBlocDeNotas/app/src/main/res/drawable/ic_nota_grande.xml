@@ -1,12 +1,12 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="48dp"
-    android:height="48dp"
+    android:width="96dp"
+    android:height="96dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
 
     <!-- Fondo del documento -->
     <path
-        android:fillColor="@color/broken_white"
+        android:fillColor="@color/white"
         android:strokeColor="@color/asulito"
         android:strokeWidth="1"
         android:pathData="M6,3h12a1,1 0 0 1 1,1v16a1,1 0 0 1 -1,1H6a1,1 0 0 1 -1,-1V4a1,1 0 0 1 1,-1z"/>
@@ -25,22 +25,3 @@
         android:pathData="M8,14h5v1H8z"/>
 </vector>
 
-
-
-
-<!--
- Icono vectorial simple para representar una nota
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="48dp"
-    android:height="48dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-
-    &lt;!&ndash; Un pequeño icono de nota &ndash;&gt;
-    <path
-        android:fillColor="#000000"
-        android:pathData="M3,3h18v18H3zM7,7h10v2H7zM7,11h10v2H7zM7,15h6v2H7z"/>
-</vector>
-
-
--->

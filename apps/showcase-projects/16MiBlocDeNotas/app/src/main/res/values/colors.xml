@@ -2,4 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <!-- NUEVO: Colores definidos con nombre de color + intensidad-->
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+
+    <!--Mis colorines-->
+    <color name="broken_white">#90FFFFF2</color>
+    <color name="asulito">#3F51B5</color>
+    <color name="asulito_claro">#3F51B5FF</color>
+
+    <!-- NUEVO: colores para el bloque informativo (apartado 6.8) -->
+    <color name="info_bg_default">#233F51B5</color>
+    <color name="info_bg_highlight">#523F51B5</color> <!-- azul suave -->
+    <color name="info_text_default">#000000</color>
+    <color name="info_text_highlight">#3F51B5</color> <!-- azul oscuro -->
 </resources>
