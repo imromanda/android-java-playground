@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="40dp">
+
+    <!-- Bloque de accesibilidad -->
+    <TextView
+        android:id="@+id/tvAccessibilityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accesibilidad"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spAccessibilityProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp" />
+
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvHeader"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="El título de mi nota"
+        android:hint="@string/etTitle" />
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/etContent"
+        android:autofillHints="El contenido de mi nota"
+        android:inputType="textMultiLine"
+        android:background="@android:drawable/edit_text"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

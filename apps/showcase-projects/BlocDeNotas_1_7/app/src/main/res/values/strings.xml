@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BlocDeNotas_1_7</string>
+    <string name="tvHeader">Bloc de notas accesible</string>
+    <string name="etTitle">Título de la nota</string>
+    <string name="etContent">Contenido de la nota...</string>
+</resources>
