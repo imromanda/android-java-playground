@@ -30,5 +30,7 @@
     <string name="info_text">Este es un bloque informativo dentro de un layout.</string>
     <string name="label_description2">El texo por el que se cambia el label_description</string>
     <string name="cardTextDemo">Esta tarjeta demuestra la elevación en Material 3</string>
+    <string name="theme_Switch">Cambio de tema</string>
+    <string name="dimens_pen">Vector de UN LAPIZ escalado mediante dimens</string>
 
 </resources>

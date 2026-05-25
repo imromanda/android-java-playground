@@ -15,4 +15,6 @@
     <string name="info_text">This is an informative section inside a layout.</string>
     <string name="label_description2">This is the second label description</string>
     <string name="cardTextDemo">This card shows elevation in Material 3</string>
+    <string name="theme_Switch">"Theme switch "</string>
+    <string name="dimens_pen">A vector pen scaled using dimens</string>
 </resources>

@@ -66,6 +66,7 @@
     <!-- Switch para cambiar de tema -->
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switchTheme"
+        android:hint="@string/theme_Switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp">
@@ -108,7 +109,7 @@
             android:src="@drawable/ic_lapiz"
             android:id="@+id/imgPencil"
             android:layout_margin="12dp"
-            android:contentDescription="Vector de UN LAPIZ escalado mediante dimens">
+            android:contentDescription="@string/dimens_pen">
         </ImageView>
 
         <!--Texto de información-->
