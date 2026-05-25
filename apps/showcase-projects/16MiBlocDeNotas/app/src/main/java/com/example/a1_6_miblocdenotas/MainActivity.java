@@ -2,6 +2,7 @@ package com.example.a1_6_miblocdenotas;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -93,23 +94,78 @@ public class MainActivity extends AppCompatActivity {
 
         }, 6000);
 
+// (apartado 6.14.5) Animamos el sexto cambio para que TODA la pantalla haga un “zoom suave”
 // Escuchamos cambios en el switch y aplicamos el tema correspondiente según si está activado o no
+        LinearLayout  rootLayout = findViewById(R.id.rootLayout);
         switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            AppCompatDelegate.setDefaultNightMode(
-                    isChecked
-                            ? AppCompatDelegate.MODE_NIGHT_YES
-                            : AppCompatDelegate.MODE_NIGHT_NO
-            );
+            // Animación en el layout completo
+            rootLayout.animate()
+                    .scaleX(0.95f)
+                    .scaleY(0.95f)
+                    .setDuration(400)
+                    .withEndAction(() ->
+                            rootLayout.animate()
+                                    .scaleX(1f)
+                                    .scaleY(1f)
+                                    .setDuration(400)
+                                    .start()
+                    )
+                    .start();
+
+            // Retraso para que la animación se vea antes de recrear la Activity
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        AppCompatDelegate.setDefaultNightMode(
+                            isChecked
+                                    ? AppCompatDelegate.MODE_NIGHT_YES
+                                    : AppCompatDelegate.MODE_NIGHT_NO
+                    );
+            }, 250);
         });
 
 
 
-
         MaterialCardView cardDemo = findViewById(R.id.cardDemo);
+        cardDemo.setAlpha(0f);
+        cardDemo.animate()
+                .alpha(1f)
+                .setDuration(800)
+                .start();
+
 // SÉPTIMO CAMBIO (8 segundos): aumentar la elevación a 20(float)
         new Handler().postDelayed(() -> {
             cardDemo.setCardElevation(20f);
+            // Animamos la card con un cambio de escala (apartado 6.14.2)
+            cardDemo.setScaleX(0.8f);
+            cardDemo.setScaleY(0.8f);
+            cardDemo.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(1000)
+                    .start();
+            cardDemo.setTranslationY(50f);
+            cardDemo.animate()
+                    .translationY(0f)
+                    .setDuration(1000)
+                    .start();
+
         }, 8000);
+
+
+        // OCTAVO CAMBIO. Un pequeño “tilt” o inclinación a los 9 segundos
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+
+            cardDemo.animate()
+                    .rotation(5f)
+                    .setDuration(300)
+                    .withEndAction(() ->
+                            cardDemo.animate()
+                                    .rotation(0f)
+                                    .setDuration(300)
+                                    .start()
+                    )
+                    .start();
+        }, 9000);
+
 
 
 
