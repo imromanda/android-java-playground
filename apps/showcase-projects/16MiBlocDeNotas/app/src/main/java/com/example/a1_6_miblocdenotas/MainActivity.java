@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -62,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
         }, 4000);
 
+// CUARTO CAMBIO (5 segundos): cambiar estilo Material del botón
+        new android.os.Handler().postDelayed(() -> {
+
+            btnShow.setTextAppearance(R.style.PrimaryMaterialButtonStyleAlt);
+            btnShow.setBackgroundTintList(
+                    getColorStateList(R.color.teal_200)
+            );
+
+        }, 5000);
 
 
 

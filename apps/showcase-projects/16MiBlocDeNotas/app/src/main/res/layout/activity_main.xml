@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/label_title"
         android:textSize="40sp"
+        android:fontFamily="@font/poppins_bold"
         android:layout_gravity="center"
 
         android:textStyle="bold"/>
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_message"
         android:layout_gravity="center"
+        android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="16dp"/>
 
     <!-- Botón -->
@@ -97,6 +99,7 @@
             android:layout_gravity="center"
             android:text="@string/info_text"
             style="@style/InfoTextStyle"
+            android:fontFamily="@font/poppins_bold"
             android:id="@+id/txtInfo">
         </TextView>
     </LinearLayout>
