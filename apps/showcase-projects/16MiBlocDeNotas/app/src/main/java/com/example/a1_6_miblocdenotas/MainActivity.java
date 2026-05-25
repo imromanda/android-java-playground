@@ -1,13 +1,20 @@
 package com.example.a1_6_miblocdenotas;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.res.ResourcesCompat;
+
+
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
         // Referencias a los elementos del layout
         ImageView imgIcon = findViewById(R.id.imgIcon);
         TextView txtWelcome = findViewById(R.id.txtWelcome);
-        Button btnShow = findViewById(R.id.btnShow);
+        MaterialButton btnShow = findViewById(R.id.btnShow);
             // NUEVO: referencia al bloque informativo (apartado 6.6)
              LinearLayout infoBlock = findViewById(R.id.infoBlock);
              TextView txtInfo = findViewById(R.id.txtInfo);
              ImageView imgPencil = findViewById(R.id.imgPencil);
+        // Capturamos el switch de cambio tema Claro/Oscuro (apartado 6.12.3)
+        SwitchMaterial switchTheme = findViewById(R.id.switchTheme);
+
 
         // Acción del botón: mostrar un mensaje usando un recurso string
         btnShow.setOnClickListener(v -> {
@@ -73,6 +83,33 @@ public class MainActivity extends AppCompatActivity {
             );
 
         }, 5000);
+
+        // QUINTO CAMBIO (6 segundos): cambiar tipografía dinámicamente
+        new android.os.Handler().postDelayed(() -> {
+
+            txtInfo.setTypeface(
+                    ResourcesCompat.getFont(this, R.font.libre_caslon)
+            );
+
+        }, 6000);
+
+// Escuchamos cambios en el switch y aplicamos el tema correspondiente según si está activado o no
+        switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            AppCompatDelegate.setDefaultNightMode(
+                    isChecked
+                            ? AppCompatDelegate.MODE_NIGHT_YES
+                            : AppCompatDelegate.MODE_NIGHT_NO
+            );
+        });
+
+
+
+
+        MaterialCardView cardDemo = findViewById(R.id.cardDemo);
+// SÉPTIMO CAMBIO (8 segundos): aumentar la elevación a 20(float)
+        new Handler().postDelayed(() -> {
+            cardDemo.setCardElevation(20f);
+        }, 8000);
 
 
 

@@ -14,4 +14,5 @@
     <string name="label_description">This app will allow you to keet ideas and reminders.</string>
     <string name="info_text">This is an informative section inside a layout.</string>
     <string name="label_description2">This is the second label description</string>
+    <string name="cardTextDemo">This card shows elevation in Material 3</string>
 </resources>

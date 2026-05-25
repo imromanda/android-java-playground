@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Layout principal de la app -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -63,14 +63,34 @@
         android:layout_marginTop="24dp"
         android:text="@string/btn_show_message" />
 
-
-
     <!-- Switch para cambiar de tema -->
     <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchTheme"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
     </com.google.android.material.switchmaterial.SwitchMaterial>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="16dp"
+        style="@style/DemoCardStyle">
+
+        <TextView
+            android:id="@+id/cardTextDemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cardTextDemo"
+            android:textSize="16sp"
+            android:layout_margin="16dp"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
 
     <!-- Bloque de información -->
     <LinearLayout
@@ -115,8 +135,5 @@
         android:contentDescription="TODO">
     </ImageView>
 
-    <!--ImageView (imgBigNote)
-        MaterialCardView (cardDemo)
-            TextView-->
 
 </LinearLayout>
