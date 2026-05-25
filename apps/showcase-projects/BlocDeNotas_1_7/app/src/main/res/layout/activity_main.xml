@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="40dp">
+    android:layout_margin="50dp">
 
     <!-- Bloque de accesibilidad -->
     <TextView
         android:id="@+id/tvAccessibilityLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accesibilidad"
+        android:text="@string/tvAccessibilityLabel"
         android:textStyle="bold"
         android:layout_marginBottom="4dp" />
 
+
+    <!--  Etiqueta y spinner para el tamaño de fuente -->
     <Spinner
         android:id="@+id/spAccessibilityProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp" />
+
+    <!-- Etiqueta y spinner para el estilo de fuente -->
+    <TextView
+        android:id="@+id/tvFontStyleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvFontStyleLabel"
+        android:layout_marginTop="8dp" />
+
+    <Spinner
+        android:id="@+id/spFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp" />
+
 
 
     <TextView
@@ -37,7 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints="El título de mi nota"
-        android:hint="@string/etTitle" />
+        android:hint="@string/etTitle"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/etContent"
