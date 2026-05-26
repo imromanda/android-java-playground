@@ -4,12 +4,15 @@ package com.example.blocdenotas_1_7;
 
 import androidx.appcompat.app.AppCompatActivity;
 // Clase base para crear una pantalla de Android
+//Esto permite también
+//Trabaja con versiones antiguas
 
 import android.graphics.Typeface;
 // Permite cambiar el estilo de la fuente (normal, negrita, cursiva)
 
 import android.os.Bundle;
 // Contenedor de datos usado al crear la Activity
+//Permite acceder directamente a los elementos del "DOM"
 
 import android.widget.ArrayAdapter;
 // Adaptador para mostrar arrays en componentes visuales como Spinner
@@ -79,33 +82,59 @@ public class MainActivity extends AppCompatActivity {
     //En vez de meter tooodo el contenido dentro de onCreate(), lo divides en métodos más pequeños.
     } //AQUÍ ACABA EL METODO ONCREATE
 
-    /* COMENZAJOS A CONFIGURAR EL SPINNER DE ACCESIBILIDAD */
+    /* COMENZAMOS A CONFIGURAR EL SPINNER DE ACCESIBILIDAD */
+
+    // Este méetodo solo puede utilizarse dentro de esta clase
+    // El méetodo realiza acciones pero no devuelve ningún dato
+    // Méetodo que configura el Spinner de accesibilidad
+    // No recibe parámetros externos
+    // Inicio del bloque de configuración del Spinner
     private void setupAccessibilitySpinner() {
-        // Variable que configura el Spinner de tamaños de texto
         //Dentro tiene un array de strings llamado profiles, cuyo contenido es normal, grande y muy grande
         String[] profiles = {"Normal", "Grande", "Muy grande"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                profiles
+        //ArrayAdapter es una clase Android que conecta los datos del array con el Spinner
+        // Porque el spinner no puede acceder directamente al array
+        //adapter es la variable que guardará el objeto adaptador
+                /*ArrayAdapter necesita:
+                        - contexto
+                        - diseño visual
+                        - datos*/
+                    //A partir de aquí son los parámetros del constructor ArrayAdapter:
+                this, // esta clase u objeto actual - CONTEXTO - “Usa esta pantalla actual como contexto”
+                android.R.layout.simple_spinner_item,// DISEÑO VISUAL - “Qué diseño visual tendrá cada elemento del Spinner”
+                profiles // Variable con los DATOS para rellenar el spinner
         );
+        //Configura cómo se verá el menú desplegable DESPLEGADO:
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spAccessibilityProfile.setAdapter(adapter);
-
+        // .setDropDownViewResource()
+        // Méetodo que configura el layout del desplegable
+    binding.spAccessibilityProfile.setAdapter(adapter);
+    // Objeto que da acceso a las vistas del layout
+    // Referencia al Spinner de perfiles de accesibilidad
+    // Asignamos el adaptador al Spinner
+    // El Spinner usará el adapter para mostrar las opciones
         binding.spAccessibilityProfile.setOnItemSelectedListener(
-                new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
-                        // Guardar el perfil seleccionado en SharedPreferences
-                        saveAccessibilityProfile(position);
-                        applyFontSizeProfile(position); // NUEVO: aplicar tamaño de fuente
-                    }
+        //Aquí se empiezan a escuchar los eventos en el spinner
+         /*set	configurar
+        OnItemSelected	cuando se selecciona un elemento
+        Listener	escuchador/evento*/
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-                        // Nada
-                    }
+        //DENTRO DEL .setOnItemSelectedListener va toodo esto:
+            new AdapterView.OnItemSelectedListener() {
+            //
+                @Override
+                public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
+                    // Guardar el perfil seleccionado en SharedPreferences
+                    saveAccessibilityProfile(position);
+                    applyFontSizeProfile(position); // NUEVO: aplicar tamaño de fuente
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    // Nada
+                }
                 }
         );
     } //FIN DE setupAccessibilitySpinner
