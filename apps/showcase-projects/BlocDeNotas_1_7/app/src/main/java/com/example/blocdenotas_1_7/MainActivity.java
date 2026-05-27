@@ -121,12 +121,22 @@ public class MainActivity extends AppCompatActivity {
         OnItemSelected	cuando se selecciona un elemento
         Listener	escuchador/evento*/
 
-        //DENTRO DEL .setOnItemSelectedListener va toodo esto:
+        //DENTRO DEL setOnItemSelectedListener va toodo esto:
             new AdapterView.OnItemSelectedListener() {
-            //
-                @Override
+            //"Crea un escuchador para reaccionar a las selecciones del Spinner"
+            // new = Se crea un nuevo objeto listener
+            // AdapterView = Clase base para componentes que usan adapters
+            // OnItemSelectedListener = Listener que detecta selecciones en el Spinner
+                @Override // Sobrescribimos el méetodo del listener para definir nuestro comportamiento
                 public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
-                    // Guardar el perfil seleccionado en SharedPreferences
+                // public ANDROID EN LISTENER EXIGE PUBLIC
+                // onItemSelected = Méetodo que se ejecuta cuando el usuario selecciona una opción
+                // Guardar el perfil seleccionado en SharedPreferences
+                // Entre paréntesis los parámetros
+                    //AdapterView<?> parent representa el componente que lanzó el evento (Spinner)
+                    //parent = spinner donde están los elementos
+                    //<?> wildcard = "No importa el tipo exacto"
+
                     saveAccessibilityProfile(position);
                     applyFontSizeProfile(position); // NUEVO: aplicar tamaño de fuente
                 }
