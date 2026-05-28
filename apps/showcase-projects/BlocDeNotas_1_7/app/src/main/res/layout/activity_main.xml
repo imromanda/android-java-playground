@@ -71,5 +71,17 @@
         android:background="@android:drawable/edit_text"
         android:padding="8dp"
         android:layout_marginTop="8dp" />
+    <Button
+        android:id="@+id/btnSaveToDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSaveToDb"
+        android:layout_marginTop="8dp" />
+    <ListView
+        android:id="@+id/lvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp" />
+
 
 </LinearLayout>

@@ -115,64 +115,103 @@ public class MainActivity extends AppCompatActivity {
     // Referencia al Spinner de perfiles de accesibilidad
     // Asignamos el adaptador al Spinner
     // El Spinner usará el adapter para mostrar las opciones
-        binding.spAccessibilityProfile.setOnItemSelectedListener(
-        //Aquí se empiezan a escuchar los eventos en el spinner
-         /*set	configurar
+    binding.spAccessibilityProfile.setOnItemSelectedListener(
+        // Aquí se empiezan a escuchar los eventos en el spinner
+        /*set	configurar
         OnItemSelected	cuando se selecciona un elemento
         Listener	escuchador/evento*/
 
-        //DENTRO DEL setOnItemSelectedListener va toodo esto:
-            new AdapterView.OnItemSelectedListener() {
-            //"Crea un escuchador para reaccionar a las selecciones del Spinner"
-            // new = Se crea un nuevo objeto listener
-            // AdapterView = Clase base para componentes que usan adapters
-            // OnItemSelectedListener = Listener que detecta selecciones en el Spinner
-                @Override // Sobrescribimos el méetodo del listener para definir nuestro comportamiento
-                public void onItemSelected(AdapterView<?> parent, android.view.View view, int position, long id) {
-                // public ANDROID EN LISTENER EXIGE PUBLIC
-                // onItemSelected = Méetodo que se ejecuta cuando el usuario selecciona una opción
-                // Guardar el perfil seleccionado en SharedPreferences
-                // Entre paréntesis los parámetros
-                    //AdapterView<?> parent representa el componente que lanzó el evento (Spinner)
-                    //parent = spinner donde están los elementos
-                    //<?> wildcard = "No importa el tipo exacto"
+        // DENTRO DEL setOnItemSelectedListener va toodo esto:
+        new AdapterView.OnItemSelectedListener() {
+          // "Crea un escuchador para reaccionar a las selecciones del Spinner"
+          // new = Se crea un nuevo objeto listener
+          // AdapterView = Clase base para componentes que usan adapters
+          // OnItemSelectedListener = Listener que detecta selecciones en el Spinner
+          @Override // Sobrescribimos el méetodo del listener para definir nuestro comportamiento
+          // public ANDROID EN LISTENER EXIGE PUBLIC
+          // onItemSelected = Méetodo que se ejecuta cuando el usuario selecciona una opción
+          // Guardar el perfil seleccionado en SharedPreferences
+          // Entre paréntesis los parámetros
+          public void onItemSelected(
+              AdapterView<?> parent,
+              // AdapterView<?> parent representa el componente que lanzó el evento (Spinner)
+              // <?> wildcard = "No importa el tipo exacto"
+              // parent = spinner donde están los elementos
+              android.view.View view,
+              // android.view.View view, = Vista visual del elemento seleccionado
+              int position,
+              // int position, = Posición del elemento seleccionado dentro del Spinner
+              long id) {
+            // long id = ID del elemento seleccionado
+            saveAccessibilityProfile(position);
+            //Guarda el perfil de accesibilidad y le mandamos la posición seleccionada por el user
+            applyFontSizeProfile(position);
+            // Aplica inmediatamente el tamaño de fuente elegido y guardado en "position"
+          }
 
-                    saveAccessibilityProfile(position);
-                    applyFontSizeProfile(position); // NUEVO: aplicar tamaño de fuente
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    // Nada
-                }
-                }
-        );
+          @Override
+          public void onNothingSelected(AdapterView<?> parent) {
+              //onNothingSelected es un méetodo OBLIGATORIO del LISTENER
+            // Cuando no se selecciona nada, no pasa nada
+          }
+        });
     } //FIN DE setupAccessibilitySpinner
 
 
 
     /* CÓMO SE VA A GUARDAR EL PERFIL DE ACCESIBILIDAD SELECCIONADO en SharedPreferences. */
     private void saveAccessibilityProfile(int index) {
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+    //private = solo puede usarse dentro de esta clase
+    //Méetodo que guarda el perfil de accesibilidad seleccionado(nro. seleccionado en el spinner)
+
+        SharedPreferences prefs =
+        //Almacenamiento LIGERO clave = valor
+                                //profile = 2
+        // prefs = Variable que almacenará las preferencias de la aplicación
+                getSharedPreferences(
+                //Obtener/crear SharedPreferences
+                        PREFS_NAME, MODE_PRIVATE);
+                        // PREFS_NAME = Nombre del archivo donde se guardarán las preferencias
+                        // MODE_PRIVATE = Modo de acceso al archivo, solo esta aplicación puede acceder al archivo
+
+
         prefs.edit()
+        //Este bloque está guardando un número entero dentro de SharedPreferences
+        // Usamos las preferencias(prefs) obtenidas anteriormente
+        //.edit() Abre el modo edición de SharedPreferences
+
                 .putInt(KEY_PROFILE, index)
+                //guardar entero (clave, valor)
                 .apply();
-    }
+                // ¡IMPORTANTE!! Confirma y guarda los cambios, sin el apply los datos NO SE GUARDAN
+    }//Fin de saveAccessibilityProfile
 
 
 /*CARGA DEL PERFIL DE ACCESIBILIDAD */
     private void loadAccessibilityProfile() {
-        // Carga el tamaño de texto guardado previamente
-
+        // Méetodo que carga el perfil de accesibilidad guardado
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        //Accede al archivo de preferencias guardadas (nombre del archivo,
         int index = prefs.getInt(KEY_PROFILE, 0); // 0 = Normal por defecto
+        //int index = Variable entera que almacenará el perfil recuperado
+        //prefs. = Usamos las preferencias previamente obtenidas
+        //KEY_PROFILE Y dev value = Clave usada para recuperar el perfil guardado
+        //defValue: 0 = si no hay nada guardado devuelve 0
         binding.spAccessibilityProfile.setSelection(index);
-        applyFontSizeProfile(index); // NUEVO: aplicar tamaño al iniciar
-    }
+        //Busca la vista del Spinner y selecciona la opción (usando el índice)
+        //Con esta línea el spinner recuerda y muestra la selección previa del usuario
+        applyFontSizeProfile(index);
+        //Aplica el tamaño al iniciar
+
+    }//Fin loadAccessibilityProfile
 
 
-    /* APLICAR EL TAMAÑO DE FUENTE */
+    /* FUNCIÓN DONDE SE DEFINEN LOS TAMAÑOS DE FUENTE */
     private void applyFontSizeProfile(int index) {
+    //función privada y no da respuesta para aplicar los tamaños de fuente al perfil (con el índice)
+        //Declaramos las variables que almacenarán los tamaños de texto, reservadas, sin datos aún
+        //float = número decimal, necesita 1234f detrás
+
         float headerSize;
         float titleSize;
         float contentSize;
@@ -196,7 +235,8 @@ public class MainActivity extends AppCompatActivity {
                 contentSize = 14f;
                 break;
         }
-
+        //Encuentra las vistas y cambia el tamaño del texto al que corresponda en cada casuística
+        //"Aplica el tamaño configurado a cada texto"
         binding.tvHeader.setTextSize(headerSize);
         binding.etTitle.setTextSize(titleSize);
         binding.etContent.setTextSize(contentSize);

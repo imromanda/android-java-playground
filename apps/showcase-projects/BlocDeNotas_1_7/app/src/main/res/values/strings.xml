@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">BlocDeNotas_1_7</string>
+    <string name="app_name">Mi blog de notas</string>
     <string name="tvHeader">Bloc de notas accesible</string>
     <string name="etTitle">Título de la nota</string>
     <string name="etContent">Contenido de la nota</string>
     <string name="tvFontStyleLabel">Estilo de fuente</string>
     <string name="tvAccessibilityLabel">Accesibilidad</string>
+    <string name="btnSaveToDb">Guardar nota</string>
 </resources>
