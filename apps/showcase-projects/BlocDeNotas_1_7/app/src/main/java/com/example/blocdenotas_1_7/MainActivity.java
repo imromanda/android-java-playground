@@ -26,6 +26,16 @@ import android.content.SharedPreferences;
 import com.example.blocdenotas_1_7.databinding.ActivityMainBinding;
 // ViewBinding: permite acceder fácilmente a las vistas del layout
 
+// imports nuevos
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 public class MainActivity extends AppCompatActivity {
 // Pantalla principal de la aplicación con "extends" HEREDA el comportamiento de una Activity de Android
@@ -49,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String KEY_FONT_STYLE = "font_style";
     // Clave usada para guardar el estilo de fuente seleccionado: normal, negrita o cursiva
+
+
+    // dentro de MainActivity
+    private NotesDatabaseHelper dbHelper;
+    private ArrayAdapter<String> notesAdapter;
+    private List<String> notesTitles = new ArrayList<>();
+
 
 
 
@@ -80,7 +97,80 @@ public class MainActivity extends AppCompatActivity {
         setupFontStyleSpinner();
         loadFontStyle();
     //En vez de meter tooodo el contenido dentro de onCreate(), lo divides en métodos más pequeños.
+
+        // Base de datos
+        dbHelper = new NotesDatabaseHelper(this);
+
+        notesAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                notesTitles
+        );
+        binding.lvNotes.setAdapter(notesAdapter);
+
+        binding.btnSaveToDb.setOnClickListener(v -> saveNoteToDatabase());
+
+        loadNotesFromDatabase();
+
     } //AQUÍ ACABA EL METODO ONCREATE
+    private void saveNoteToDatabase() {
+        String title = binding.etTitle.getText().toString().trim();
+        String content = binding.etContent.getText().toString();
+
+        if (title.isEmpty()) {
+            Toast.makeText(this, "El título no puede estar vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(NotesDatabaseHelper.COLUMN_TITLE, title);
+        values.put(NotesDatabaseHelper.COLUMN_CONTENT, content);
+
+        long newRowId = db.insert(NotesDatabaseHelper.TABLE_NOTES, null, values);
+
+        if (newRowId != -1) {
+            Toast.makeText(this, "Nota guardada en la base de datos", Toast.LENGTH_SHORT).show();
+            loadNotesFromDatabase();
+        } else {
+            Toast.makeText(this, "Error al guardar en la base de datos", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void loadNotesFromDatabase() {
+        notesTitles.clear();
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                NotesDatabaseHelper.COLUMN_ID,
+                NotesDatabaseHelper.COLUMN_TITLE
+        };
+
+        Cursor cursor = db.query(
+                NotesDatabaseHelper.TABLE_NOTES,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                NotesDatabaseHelper.COLUMN_ID + " DESC"
+        );
+
+        while (cursor.moveToNext()) {
+            String title = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NotesDatabaseHelper.COLUMN_TITLE));
+            notesTitles.add(title);
+        }
+        cursor.close();
+
+        notesAdapter.notifyDataSetChanged();
+    }
+    // Resto del código
+
+
+
 
     /* COMENZAMOS A CONFIGURAR EL SPINNER DE ACCESIBILIDAD */
 
