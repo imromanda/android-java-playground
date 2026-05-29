@@ -49,23 +49,54 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_TITLE + " TEXT, " +
                     COLUMN_CONTENT + " TEXT" +
                     ");";
-    //
 
+
+    // Consulta SQL para eliminar la tabla de notas
     private static final String SQL_DROP_TABLE =
+            // Instrucción SQL para eliminar la tabla solo si existe
+            // Nombre de la tabla definido mediante constante
             "DROP TABLE IF EXISTS " + TABLE_NOTES;
 
+    //"Crear un helper para gestionar la base de datos"
+    // Constructor de la clase NotesDatabaseHelper
+    //Constructores siempre tienen el mismo nombre que las clases
+    //Recibe un context
     public NotesDatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    // Llama al constructor de SQLiteOpenHelper(al padre con el super)
+    super(
+        // contexto de la aplicación
+        // Nombre del archivo de base de datos
+        // Se usa la fábrica por defecto de SQLite
+        // Versión actual de la base de datos
+            context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    //"Qué hacer cuando se crea la base de datos por primera vez"
+    public void onCreate(SQLiteDatabase db)
+            //El méetodo recibe un objeto SQLiteDatabase.
+    {
+        //"Ejecuta el SQL para crear la tabla de notas"
+        //db = objeto SQLiteDatabase recibido en onCreate()
+        //execSQL = Ejecuta una instrucción SQL directamente
+
         db.execSQL(SQL_CREATE_TABLE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    //"Qué hacer cuando se guarde una nueva versión de la base de datos"
+    //"Qué hacer cuando la base de datos necesita actualizarse"
+    //Conexión activa SQLite.
+    public void onUpgrade(
+            //Conexión activa SQLite,
+            //número de la anterior versión,
+            //número de la nueva versión newVersion
+            SQLiteDatabase db, int oldVersion, int newVersion)
+        //
+    {
+        //"Eliminar la tabla anterior de notas"
         db.execSQL(SQL_DROP_TABLE);
+        //Vuelve a ejecutar el méetodo onCreate() para crear otra vez las tablas
         onCreate(db);
     }
 }
