@@ -63,14 +63,17 @@ public class MainActivity extends AppCompatActivity {
 
     // dentro de MainActivity
     private NotesDatabaseHelper dbHelper;
+    //Declara una variable que almacenará el helper de la base de datos SQLite
     private ArrayAdapter<String> notesAdapter;
-    private List<String> notesTitles = new ArrayList<>();
+    //Declara un Adapter que conectará una lista de textos con una vista visual
+    private final List<String> notesTitles = new ArrayList<>();
+    //Crea una lista que almacenará los títulos de las notas
 
 
 
 
     @Override
-    // Sobrescribe el metodo onCreate de AppCompatActivity
+    // Sobrescribe el méetodo onCreate de AppCompatActivity
 
     protected void onCreate(Bundle savedInstanceState) {
     // Protected = nivel de acceso = esta clase puede usarlo, clases hijas también
