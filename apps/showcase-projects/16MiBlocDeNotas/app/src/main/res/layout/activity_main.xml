@@ -74,20 +74,21 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardDemo"
+        style="@style/DemoCardStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:padding="16dp"
-        style="@style/DemoCardStyle">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/cardTextDemo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cardTextDemo"
-            android:textSize="16sp"
             android:layout_margin="16dp"
-            />
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="@string/cardTextDemo"
+            android:textSize="16sp" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -95,34 +96,33 @@
 
     <!-- Bloque de información -->
     <LinearLayout
+        android:id="@+id/infoBlock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/info_bg_default"
-        android:id="@+id/infoBlock">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <!--Nuevo icono de lápiz-->
         <ImageView
 
+            android:id="@+id/imgPencil"
             android:layout_width="@dimen/icon_medium"
             android:layout_height="@dimen/icon_medium"
-            android:src="@drawable/ic_lapiz"
-            android:id="@+id/imgPencil"
             android:layout_margin="12dp"
-            android:contentDescription="@string/dimens_pen">
-        </ImageView>
+            android:contentDescription="@string/dimens_pen"
+            android:src="@drawable/ic_lapiz"></ImageView>
 
         <!--Texto de información-->
         <TextView
+            android:id="@+id/txtInfo"
+            style="@style/InfoTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
             android:layout_gravity="center"
-            android:text="@string/info_text"
-            style="@style/InfoTextStyle"
+            android:layout_margin="12dp"
             android:fontFamily="@font/poppins_bold"
-            android:id="@+id/txtInfo">
-        </TextView>
+            android:text="@string/info_text"></TextView>
     </LinearLayout>
 
     <!-- Icono GRANDE de nota -->

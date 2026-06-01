@@ -98,5 +98,8 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DROP_TABLE);
         //Vuelve a ejecutar el méetodo onCreate() para crear otra vez las tablas
         onCreate(db);
+
+
+
     }
 }

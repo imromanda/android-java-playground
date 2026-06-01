@@ -26,7 +26,6 @@ import android.content.SharedPreferences;
 import com.example.blocdenotas_1_7.databinding.ActivityMainBinding;
 // ViewBinding: permite acceder fácilmente a las vistas del layout
 
-// imports nuevos
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -34,6 +33,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
+
+// imports nuevos
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 
 
 
@@ -114,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
         binding.btnSaveToDb.setOnClickListener(v -> saveNoteToDatabase());
 
         loadNotesFromDatabase();
+
+        // dentro de MainActivity.onCreate, después de configurar la BD:
+        binding.btnExportNotes.setOnClickListener(v -> exportNotesToFile());
 
     } //AQUÍ ACABA EL METODO ONCREATE
     private void saveNoteToDatabase() {
@@ -398,6 +408,70 @@ public class MainActivity extends AppCompatActivity {
         binding.etTitle.setTypeface(null, style);
         binding.etContent.setTypeface(null, style);
     }
+
+
+
+    // méeetodo para exportar
+    private void exportNotesToFile() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                NotesDatabaseHelper.COLUMN_TITLE,
+                NotesDatabaseHelper.COLUMN_CONTENT
+        };
+
+        Cursor cursor = db.query(
+                NotesDatabaseHelper.TABLE_NOTES,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                NotesDatabaseHelper.COLUMN_ID + " ASC"
+        );
+
+        StringBuilder sb = new StringBuilder();
+        while (cursor.moveToNext()) {
+            String title = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NotesDatabaseHelper.COLUMN_TITLE));
+            String content = cursor.getString(
+                    cursor.getColumnIndexOrThrow(NotesDatabaseHelper.COLUMN_CONTENT));
+
+            sb.append("Título: ").append(title).append("\n");
+            sb.append("Contenido:\n").append(content).append("\n");
+            sb.append("-----\n\n");
+        }
+        cursor.close();
+
+        String allNotesText = sb.toString();
+        if (allNotesText.isEmpty()) {
+            Toast.makeText(this, "No hay notas para exportar", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        File externalDir = getExternalFilesDir(null);
+        if (externalDir == null) {
+            Toast.makeText(this, "Almacenamiento externo no disponible", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        File file = new File(externalDir, "notas_exportadas.txt");
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
+            writer.write(allNotesText);
+            writer.close();
+
+            Toast.makeText(this,
+                    "Notas exportadas en:\n" + file.getAbsolutePath(),
+                    Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error al exportar notas", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
 }
