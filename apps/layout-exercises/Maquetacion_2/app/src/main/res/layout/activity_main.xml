@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:padding="16dp"
+    android:id="@+id/main"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Título de la pantalla"
+            android:textSize="22sp">
+
+        </TextView>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:src="@drawable/catto"
+            android:contentDescription="Gatito sonriente"
+            android:layout_margin="6dp"
+            android:layout_marginTop="16dp">
+        </ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+
+                    android:layout_weight="0.8"
+                    android:text="Izquierda"></Button>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+
+                    android:layout_weight="0.8"
+                    android:text="Centro"></Button>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+
+                    android:layout_weight="0.8"
+                    android:text="Derecha"></Button>
+        </LinearLayout>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_margin="20dp"
+    android:hint="Escribe algo aquí"
+        ></EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="40dp"
+            android:layout_gravity="center_horizontal"
+                android:text="Aceptar">
+
+        </Button>
+
+        </LinearLayout>
