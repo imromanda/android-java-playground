@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- IP del servidor -->
+        <EditText
+            android:id="@+id/etIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="IP del servidor (ej: 192.168.1.35 o 10.0.2.2)"
+            android:inputType="text"
+            android:padding="12dp" />
+
+        <!-- Puerto -->
+        <EditText
+            android:id="@+id/etPuerto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Puerto (ej: 5000)"
+            android:inputType="number"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Mensaje a enviar -->
+        <EditText
+            android:id="@+id/etMensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mensaje a enviar"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Botón Enviar -->
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:layout_marginTop="16dp" />
+
+        <!-- Respuesta del servidor -->
+        <TextView
+            android:id="@+id/tvRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Respuesta del servidor..."
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:background="#EEEEEE" />
+
+    </LinearLayout>
+
+</ScrollView>
