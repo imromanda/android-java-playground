@@ -1,124 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:layout_marginTop="30dp"
-    android:padding="16dp"
-    android:id="@+id/main"
-        >
+    android:layout_marginBottom="40dp"
+    android:layout_marginTop="40dp">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_marginTop="30dp"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="@string/t_tulo_de_la_pantalla"
-            android:textSize="22sp">
+            android:textSize="22sp" />
 
-        </TextView>
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
-            android:padding="2dp"
-            android:src="@drawable/catto"
-            android:contentDescription="@string/gatito_sonriente"
             android:layout_margin="6dp"
-            android:layout_marginTop="16dp">
-        </ImageView>
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/gatito_sonriente"
+            android:padding="2dp"
+            android:src="@drawable/catto" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-           >
+            android:orientation="horizontal">
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
+            <Button
+                android:id="@+id/buttonLeft"
 
-                    android:layout_weight="1"
-                    android:text="@string/left" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:text="@string/left" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
+            <Button
+                android:id="@+id/buttonCenter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:text="@string/center" />
 
-                    android:layout_weight="1"
-                    android:text="@string/center" />
+            <Button
+                android:id="@+id/buttonRight"
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:layout_weight="1"
-                    android:text="@string/right" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:text="@string/right" />
         </LinearLayout>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="50dp"
             android:layout_margin="20dp"
+            android:background="@drawable/spinnerbg"
             android:autofillHints="123456789"
-            android:inputType="phone"
             android:gravity="center"
-            android:hint="@string/tel_fono" />
+            android:hint="@string/tel_fono"
+            android:inputType="phone" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="50dp"
             android:layout_margin="20dp"
+            android:background="@drawable/spinnerbg"
             android:autofillHints="tucorreo@correo.com"
-            android:inputType="textEmailAddress"
             android:gravity="center"
-            android:hint="@string/email" />
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
 
         <CheckBox
-            android:id="@+id/CondLeidas"
+            android:id="@+id/ConditionsRead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ConditionsRead"
-            android:checked="false" />
-        <CheckBox
-            android:id="@+id/CondAcept"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/accept_conditions"
             android:checked="false"
-            />
+            android:text="@string/conditions_read" />
+
+        <CheckBox
+            android:id="@+id/AcceptConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/accept_conditions" />
 
         <Button
             android:id="@+id/btnAceptar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="40dp"
             android:layout_gravity="center_horizontal"
             android:enabled="false"
-            android:text="@string/btn_accept"/>
+            android:paddingHorizontal="40dp"
+            android:text="@string/btn_accept" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radio_button_1"/>
 
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radio_button_2"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/radio_button_1" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_button_2" />
         </RadioGroup>
 
         <Spinner
+            android:id="@+id/spnCiudades"
             android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/spinnerbg"
+            android:backgroundTintMode="add"
+            android:entries="@array/lista_ciudades" />
+
+        <Spinner
+            android:id="@+id/spnCiudades2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/spinnerbg"
+            android:entries="@array/lista_ciudades"
+            android:prompt="@string/elige_ciudad"
+            android:spinnerMode="dialog" />
+
+        <SeekBar
+            android:id="@+id/volume"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                >
+            android:max="100"
+            android:pointerIcon="horizontal_double_arrow"
+            android:progress="25" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/jesse_pinkman"
+            android:textSize="22sp" />
 
-        </Spinner>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:textAlignment="textStart"
 
-        </LinearLayout>
+            android:text="@string/atope_de_power1"
+            android:layout_margin="20dp"
+
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:textAlignment="textStart"
+
+            android:text="@string/atope_de_power2"
+            android:layout_margin="20dp"
+
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+</ScrollView>
