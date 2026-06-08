@@ -25,8 +25,10 @@ public class WifiScannerActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupToolbar("Wi Fi Direct");
         setContentView(R.layout.activity_wifi_scanner);
+
+        setupToolbar("Wifi Scanner Activity");
+
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         txtResults = findViewById(R.id.txtResults);

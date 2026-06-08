@@ -11,6 +11,5 @@
         <item name="colorOnPrimary">@android:color/white</item>
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
-
     <style name="Theme._2_2_3_WifiTools" parent="Base.Theme._2_2_3_WifiTools" />
 </resources>

@@ -1,5 +1,9 @@
 package com.example.a2_2_3_wifitools.p2p;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,11 +31,40 @@ public class WifiP2PBroadcastReceiver extends BroadcastReceiver {
         String action = intent.getAction();
 
         if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                return;
+            }
+
+            manager.requestPeers(channel, (WifiP2pDeviceList peers) -> {
+                activity.updateDeviceList(peers.getDeviceList());
+            });
 
             // Solicita la lista de dispositivos P2P disponibles
             manager.requestPeers(channel, (WifiP2pDeviceList peers) -> {
                 activity.updateDeviceList(peers.getDeviceList());
             });
         }
+
+        if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
+
+            manager.requestConnectionInfo(channel, info -> {
+
+                if (info.groupFormed) {
+
+                    if (info.isGroupOwner) {
+                        activity.onGroupOwnerReady();
+                    } else {
+                        activity.onClientReady(info.groupOwnerAddress);
+                    }
+                }
+            });
+        }
+
+
+
     }
 }
