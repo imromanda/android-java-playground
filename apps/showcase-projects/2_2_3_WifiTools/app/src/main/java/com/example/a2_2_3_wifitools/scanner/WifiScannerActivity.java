@@ -13,10 +13,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.a2_2_3_wifitools.R;
+import com.example.a2_2_3_wifitools.core.BaseActivity;
 
 import java.util.List;
 
-public class WifiScannerActivity extends AppCompatActivity {
+public class WifiScannerActivity extends BaseActivity {
 
     private WifiManager wifiManager;
     private TextView txtResults;
@@ -24,6 +25,7 @@ public class WifiScannerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupToolbar("Wi Fi Direct");
         setContentView(R.layout.activity_wifi_scanner);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
