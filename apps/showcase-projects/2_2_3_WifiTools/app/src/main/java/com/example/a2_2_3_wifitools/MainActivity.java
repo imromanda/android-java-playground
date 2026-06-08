@@ -1,5 +1,6 @@
 package com.example.a2_2_3_wifitools;
 
+import com.example.a2_2_3_wifitools.core.BaseActivity;
 import com.example.a2_2_3_wifitools.scanner.WifiScannerActivity;
 import com.example.a2_2_3_wifitools.connector.WifiConnectorActivity;
 import com.example.a2_2_3_wifitools.p2p.WifiP2PDiscoveryActivity;
@@ -15,11 +16,12 @@ import android.content.Intent;
 import android.widget.Button;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupToolbar("Wi Fi Direct");
         setContentView(R.layout.activity_main);
 
         Button btnScanner = findViewById(R.id.btnScanner);
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnScanner.setOnClickListener(v ->
                 startActivity(new Intent(this, WifiScannerActivity.class)));
+
 
         btnConnector.setOnClickListener(v ->
                 startActivity(new Intent(this, WifiConnectorActivity.class)));

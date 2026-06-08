@@ -20,11 +20,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.a2_2_3_wifitools.R;
+import com.example.a2_2_3_wifitools.core.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WifiConnectorActivity extends AppCompatActivity {
+public class WifiConnectorActivity extends BaseActivity {
 
     private WifiManager wifiManager;
     private ListView listWifi;
@@ -37,6 +38,7 @@ public class WifiConnectorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupToolbar("Wi Fi Direct");
         setContentView(R.layout.activity_wifi_connector);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
@@ -60,7 +62,15 @@ public class WifiConnectorActivity extends AppCompatActivity {
                 txtStatus.setText("Selecciona una red primero");
                 return;
             }
-            connectToWifi(selectedSSID, txtPassword.getText().toString());
+            // Verificar la versión de Android. Decide qué API usar según la versión de Android
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                // Android 10 (API 29) o superior → Conexion con API moderna, con WifiNetworkSpecifier
+                connectToWifiModern(selectedSSID, txtPassword.getText().toString());
+            } else {
+                // Android 9 o inferior → Conexión con API antigua, con WifiConfiguration
+                txtStatus.setText("versión Android 9 o inferior. Se conectará con el método Legacy");
+                connectToWifiLegacy(selectedSSID, txtPassword.getText().toString());
+            }
         });
     }
 
@@ -113,8 +123,7 @@ public class WifiConnectorActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    private void connectToWifi(String ssid, String password) {
-
+    private void connectToWifiModern(String ssid, String password)  {
         WifiNetworkSpecifier specifier =
                 new WifiNetworkSpecifier.Builder()
                         .setSsid(ssid)
@@ -142,4 +151,9 @@ public class WifiConnectorActivity extends AppCompatActivity {
             }
         });
     }
+    private void connectToWifiLegacy(String ssid, String password) {
+        txtStatus.setText("Método Legacy pendiente de implementar");
+    }
+
+
 }
