@@ -28,6 +28,8 @@ public class WifiP2PDiscoveryActivity extends BaseActivity {
     private IntentFilter intentFilter;
 
     private ListView listDevices;
+
+
     private TextView txtStatus;
 
     private List<WifiP2pDevice> deviceList = new ArrayList<>();
@@ -43,6 +45,22 @@ public class WifiP2PDiscoveryActivity extends BaseActivity {
         channel = manager.initialize(this, getMainLooper(), null);
 
         listDevices = findViewById(R.id.listDevices);
+
+        listDevices.setOnItemClickListener((parent, view, position, id) -> {
+
+            // Obtenemos el dispositivo seleccionado
+            WifiP2pDevice device = deviceList.get(position);
+
+            // Mostramos información básica al usuario
+            txtStatus.setText("Dispositivo seleccionado:\n" +
+                    device.deviceName + "\n" +
+                    device.deviceAddress);
+
+            // Guardamos el dispositivo seleccionado para usarlo más adelante
+            selectedDevice = device;
+        });
+
+
         txtStatus = findViewById(R.id.txtStatus);
 
         Button btnDiscover = findViewById(R.id.btnDiscover);
@@ -116,6 +134,8 @@ public class WifiP2PDiscoveryActivity extends BaseActivity {
         listDevices.setAdapter(adapter);
         txtStatus.setText("Dispositivos encontrados: " + deviceList.size());
     }
+
+    private WifiP2pDevice selectedDevice = null;
 
     @Override
     protected void onResume() {
