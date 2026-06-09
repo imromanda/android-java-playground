@@ -3,6 +3,9 @@ package com.example.a2_2_3_wifitools.core;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
+
 //→ Importa el componente Toolbar, que permite crear una barra superior personalizada
 import androidx.appcompat.widget.Toolbar;
 
