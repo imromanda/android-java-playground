@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My_Meteo_App</string>
+    <string name="HttpURLConnection">HTTP con HttpURLConnection</string>
+    <string name="OkHttp">HTTP con OkHttp</string>
+    <string name="HttpYCertificados"><![CDATA[HTTP & Certificados]]></string>
+    <string name="Eficiencia">Eficiencia</string>
+    <string name="Consultar_Clima">Consultar clima</string>
+</resources>
