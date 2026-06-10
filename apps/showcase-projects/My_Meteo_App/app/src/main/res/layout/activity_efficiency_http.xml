@@ -24,13 +24,13 @@
         />
 
     <TextView
-        android:id="@+id/jsonTxt"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtResult"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="asdfasdfasdfasdf"
-        android:textSize="18dp"
-        android:layout_margin="20dp"
-        />
+        android:paddingTop="16dp"
+        android:textSize="16sp"
+        android:text="@string/resultado_aparecer_aqu" />
 
 
 </LinearLayout>

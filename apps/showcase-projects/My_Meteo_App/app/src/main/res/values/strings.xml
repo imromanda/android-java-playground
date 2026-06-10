@@ -7,4 +7,5 @@
     <string name="Consultar_Clima">Consultar clima</string>
     <string name="WeatherIcons">Iconos de tiempo</string>
     <string name="meteo_app">METEO APP!</string>
+    <string name="resultado_aparecer_aqu">Resultado aparecerá aquí...</string>
 </resources>
