@@ -11,8 +11,8 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="METEO APP!"
-        android:textSize="24dp"
+        android:text="@string/meteo_app"
+        android:textSize="24sp"
         android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         />
 
     <Button
-        android:id="@+id/HttpURLConnection"
+        android:id="@+id/btnHttpURLConnection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/HttpURLConnection"
@@ -32,36 +32,46 @@
 
 
     <Button
-        android:id="@+id/OkHttp"
+        android:id="@+id/btnOkHttp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/OkHttp"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@id/HttpURLConnection"
+        app:layout_constraintTop_toBottomOf="@id/btnHttpURLConnection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <Button
-        android:id="@+id/HttpYCertificados"
+        android:id="@+id/btnHttpsSecurity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/HttpYCertificados"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@id/OkHttp"
+        app:layout_constraintTop_toBottomOf="@id/btnOkHttp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
     <Button
-        android:id="@+id/Eficiencia"
+        android:id="@+id/btnEfficiency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Eficiencia"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@id/HttpYCertificados"
+        app:layout_constraintTop_toBottomOf="@id/btnHttpsSecurity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
+    <Button
+        android:id="@+id/btnWeatherIcons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WeatherIcons"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btnEfficiency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

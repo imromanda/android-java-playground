@@ -20,9 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HttpEfficiencyActivity"
-            android:enabled="true">
-        </activity>
+        <activity android:name=".HttpUrlConnectionActivity" />
+        <activity android:name=".OkHttpActivity" />
+        <activity android:name=".HttpEfficiencyActivity" />
+        <activity android:name=".HttpsSecurityActivity" />
+        <activity android:name=".WeatherIconsActivity" />
     </application>
 
 </manifest>

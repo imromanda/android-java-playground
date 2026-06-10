@@ -5,4 +5,6 @@
     <string name="HttpYCertificados"><![CDATA[HTTP & Certificados]]></string>
     <string name="Eficiencia">Eficiencia</string>
     <string name="Consultar_Clima">Consultar clima</string>
+    <string name="WeatherIcons">Iconos de tiempo</string>
+    <string name="meteo_app">METEO APP!</string>
 </resources>
