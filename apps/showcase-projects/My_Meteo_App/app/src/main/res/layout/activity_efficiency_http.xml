@@ -32,5 +32,13 @@
         android:textSize="16sp"
         android:text="@string/resultado_aparecer_aqu" />
 
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Back"
+        android:layout_margin="20dp"
+        />
+
 
 </LinearLayout>
