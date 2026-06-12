@@ -42,11 +42,11 @@ public class WeatherIconsActivity extends AppCompatActivity {
         btnConsultar_Clima_URL.setOnClickListener(v->{
             fetchWeather();
         });
-         imgIcon = findViewById(R.id.imgIcon);
-         txtTemperature = findViewById(R.id.txtTemperature);
-         txtWindSpeed = findViewById(R.id.txtWindSpeed);
-         txtEstado = findViewById(R.id.txtEstado);
-         txtResult = findViewById(R.id.txtResult);
+        imgIcon = findViewById(R.id.imgIcon);
+        txtTemperature = findViewById(R.id.txtTemperature);
+        txtWindSpeed = findViewById(R.id.txtWindSpeed);
+        txtEstado = findViewById(R.id.txtEstado);
+        txtResult = findViewById(R.id.txtResult);
 
     }
 
