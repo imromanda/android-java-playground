@@ -97,15 +97,16 @@ public class WeatherIconsActivity extends AppCompatActivity {
                             int weatherCode = todaysWeather.getInt("weathercode");
 
                             buffered.close();
-                            int iconRes = WeatherIconMapper.getIcon(weatherCode, isDay);
+                            int iconRes = WeatherMapper.getIcon(weatherCode, isDay);
+                            String weatherDescription = WeatherMapper.getDescription(weatherCode);
 
 
                             runOnUiThread(
                                     () -> {
                                         imgIcon.setImageResource(iconRes);
-                                        txtTemperature.setText("Temperature: " + String.valueOf(temp) + "ºC");
+                                        txtTemperature.setText("Temperatura: " + String.valueOf(temp) + "ºC");
                                         txtWindSpeed.setText("Velocidad del viento: " + String.valueOf(vel) + "Km/h");
-                                        txtEstado.setText("Código de tiempo: " + String.valueOf(weatherCode));
+                                        txtEstado.setText(weatherDescription);
                                     });
                         } else {
                             runOnUiThread(

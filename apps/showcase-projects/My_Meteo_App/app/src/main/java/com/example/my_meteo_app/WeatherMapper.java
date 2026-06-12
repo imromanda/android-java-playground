@@ -1,6 +1,14 @@
 package com.example.my_meteo_app;
 
-public class WeatherIconMapper {
+/*Este WeatherMapper va a encargarse de:
+
+✔️ convertir weatherCode + isDay → icono
+✔️ convertir weatherCode → descripción
+
+*/
+
+public class WeatherMapper {
+
     public static int getIcon(int weatherCode, int isDay) {
 
         boolean isDayTime = (isDay == 1);
@@ -47,4 +55,39 @@ public class WeatherIconMapper {
                 return isDayTime ? R.drawable.w01d : R.drawable.w01n;
         }
     }
+
+    public static String getDescription (int weatherCode) {
+    switch (weatherCode) {
+      case 0:
+        return "Despejado";
+      case 1:
+        return "Mayormente despejado";
+      case 2:
+        return "Parcialmente nublado";
+      case 3:
+        return "Nublado";
+      case 45:
+      case 48:
+        return "Niebla";
+      case 51:
+      case 53:
+      case 55:
+        return "Llovizna";
+      case 61:
+      case 63:
+      case 65:
+        return "Lluvia";
+      case 80:
+      case 81:
+      case 82:
+        return "Chubascos";
+      case 95:
+          return "Tormenta";
+      case 96:
+      case 99:
+        return "Tormenta con granizo";
+      default:
+        return "Desconocido";
+    }
+  }
 }
