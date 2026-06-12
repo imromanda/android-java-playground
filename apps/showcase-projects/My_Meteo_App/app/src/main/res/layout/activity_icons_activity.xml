@@ -11,7 +11,7 @@
         android:id="@+id/imgIcon"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:background="@color/black"
+        android:background="@color/white"
         android:layout_margin="20dp"
         android:contentDescription="TODO" />
 
@@ -21,8 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Calorro:"
-
         />
 
     <TextView
@@ -31,7 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Ventolera:"
 
         />
 
@@ -41,7 +38,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Estado?:"
+        />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:text="@string/resultado_aparecer_aqu" />
+
+    <Button
+        android:id="@+id/btnConsultar_Clima_URL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Consultar_Clima"
+        android:layout_margin="20dp"
         />
 
 
